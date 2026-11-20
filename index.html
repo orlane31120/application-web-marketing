@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon expérience</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f5ece5;
+      font-family: Arial, sans-serif;
+      color: #30231e;
+    }
+
+    main {
+      width: 90%;
+      max-width: 430px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 30px;
+      letter-spacing: 1px;
+    }
+
+    p { font-size: 15px; }
+
+    input {
+      width: 100%;
+      padding: 17px;
+      margin: 25px 0 15px;
+      border: 1px solid #bba99e;
+      border-radius: 30px;
+      font-size: 16px;
+      background: white;
+    }
+
+    button {
+      width: 100%;
+      padding: 17px;
+      border: none;
+      border-radius: 30px;
+      background: #30231e;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #accueil { display: none; }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section id="question">
+      <h1>QUEL EST TON NOM ?</h1>
+      <p>Pour commencer, présente-toi.</p>
+
+      <input id="prenom" type="text"
+        placeholder="Ton prénom">
+
+      <button onclick="continuer()">
+        Continuer
+      </button>
+    </section>
+
+    <section id="accueil">
+      <h1 id="bonjour"></h1>
+      <p>Bienvenue dans cette expérience !</p>
+    </section>
+  </main>
+
+  <script>
+    function continuer() {
+      const prenom = document
+        .getElementById("prenom")
+        .value.trim();
+
+      if (!prenom) {
+        alert("Entre ton prénom pour continuer !");
+        return;
+      }
+
+      document.getElementById("question").style.display = "none";
+      document.getElementById("accueil").style.display = "block";
+      document.getElementById("bonjour").textContent =
+        "Enchantée " + prenom + " !";
+    }
+  </script>
+</body>
+</html>
